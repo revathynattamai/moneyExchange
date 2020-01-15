@@ -31,7 +31,7 @@ module.exports = {
   devtool: "source-map",
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Search',
+      title: 'Money Exchange',
       template: path.resolve(__dirname, 'index.html'),
       excludeChunks: ['polyfills'],
     }),
