@@ -1,0 +1,36 @@
+{
+  "name": "boilerplate",
+  "version": "1.0.0",
+  "description": "This main aim of the project is to show what all the features that we need to know to create a react application and why do we need those features.  As a first step i have created a index.html file where all the begineers will be excited to see their code working in the browser.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --config webpack.config.js --hot --inline",
+    "prod": "webpack --config webpack.config.js --hot --inline"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/revathynattamai/boilerplate.git"
+  },
+  "author": "Revathy gopinath",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/revathynattamai/boilerplate/issues"
+  },
+  "homepage": "https://github.com/revathynattamai/boilerplate#readme",
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "webpack": "^4.30.0",
+    "webpack-dev-server": "^3.3.1"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.1.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^9.0.0",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "html-webpack-plugin": "^3.2.0"
+  }
+}
