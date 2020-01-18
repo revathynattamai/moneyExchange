@@ -7,6 +7,8 @@
     "build:client:devServer": "webpack-dev-server --env=dev --config=_webpack/webpack.config.js",
     "build:client:dev": "webpack --env=dev --config=_webpack/webpack.config.js",
     "build:client:prod": "webpack --env=prod --config=_webpack/webpack.config.js",
+    "build:server:prod": "webpack --env=server.prod --config=_webpack/webpack.config.js",
+    "build:server:firebase": "webpack --env=server.firebase --config=_webpack/webpack.config.js",
     "lint": "eslint .",
     "firebase:hosting": "firebase deploy --only=hosting",
     "test": "jest"
@@ -24,6 +26,9 @@
   "dependencies": {
     "@material-ui/core": "^4.8.3",
     "@material-ui/styles": "^4.8.2",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "firebase-functions": "^3.3.0",
     "isomorphic-fetch": "^2.2.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -53,6 +58,7 @@
     "webpack-bundle-analyzer": "^3.6.0",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.10.1",
-    "webpack-merge": "^4.2.2"
+    "webpack-merge": "^4.2.2",
+    "webpack-node-externals": "^1.7.2"
   }
 }

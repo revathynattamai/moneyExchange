@@ -2,3 +2,6 @@ node_modules
 _dist
 .firebase
 coverage
+functions/index.js
+functions/templates
+functions/node_modules
