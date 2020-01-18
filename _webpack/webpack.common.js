@@ -3,19 +3,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: './index.js',
+    app: './src/client/index.js',
   },
   output: {
-    path: path.resolve(__dirname, '_dist'),
+    path: path.resolve(__dirname, '../_dist'),
     filename: '[name].bundle.js',
-    publicPath: '/',
-  },
-  devServer: {
-    contentBase: path.join(__dirname, '_dist'),
-    compress: true,
-    host: 'localhost',
-    port: 5011,
-    hot: true,
   },
   module: {
     rules: [
@@ -28,12 +20,10 @@ module.exports = {
       },
     ],
   },
-  devtool: "source-map",
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Money Exchange',
-      template: path.resolve(__dirname, 'index.html'),
-      excludeChunks: ['polyfills'],
+      template: path.resolve(__dirname, '../_templates/client.html'),
     }),
-  ]
-}
+  ],
+};
