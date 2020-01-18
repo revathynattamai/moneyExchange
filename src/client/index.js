@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import store from './data/store';
 
-class App extends Component {
-  render() {
-    return <h1>Hello, World</h1>;
-  }
+function App() {
+  return <Provider store={store}>
+    <h1>Hello, World</h1>
+  </Provider>
 }
 
-render(<App />, document.getElementById('root')); 
+render(<App />, document.getElementById('root'));
+if (module.hot) module.hot.accept();
