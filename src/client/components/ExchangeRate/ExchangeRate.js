@@ -1,45 +1,70 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-
-import SwipeableViews from 'react-swipeable-views';
-import TextField from '@material-ui/core/TextField';
-import classNames from 'classnames';
-import { Typography } from '@material-ui/core';
-import Fab from '@material-ui/core/Fab';
-import { withStyles } from '@material-ui/core/styles';
-import styles from './styles';
-import MobileStepper from '@material-ui/core/MobileStepper';
-import Button from '@material-ui/core/Button';
-import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
-import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
-import { convert } from '../../data/inputs/inputActions';
+import { withStyles } from '@material-ui/styles';
 import withErrorBoundary from './errorBoundary';
-
-import { formatMoney } from '../../utils/helpers';
+import CurrencySwiper from './CurrencySwiper';
+import styles from './styles';
 
 class ExchangeRate extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      indexTop: 0,
-      indexBottom: 1,
+      from: 'usd',
+      to: 'usd',
+      value: '',
     }
+  }
+
+  onFromValChange = (e, currency) => {
+    const val = e.target.value;
+    this.setState({
+      from: currency,
+      value: +val,
+    });
   }
 
   componentDidMount = () => {
     const { getCurrencies, getExchangeRates } = this.props;
     getCurrencies();
-    // getExchangeRates();
-    // window.setInterval(getExchangeRates, 10000);
+    getExchangeRates();
+    // window.setInterval(getExchangeRates, 1000);
+  }
+
+  onFromChangeIndex = i => {
+    const { currencies } = this.props;
+
+    this.setState({
+      from: Object.keys(currencies)[i],
+    });
+  }
+
+  onToChangeIndex = i => {
+    const { currencies } = this.props;
+
+    this.setState({
+      to: Object.keys(currencies)[i],
+    });
+  }
+
+  onExchange = () => {
+    const { exchange } = this.props;
+    exchange();
   }
 
   render() {
-    const { currencies } = this.props;
-    if(!currencies) return null;
-    return (<div>
-      {Object.keys(currencies).map((a, i) => <SwipeableViews key={i}> {a} </SwipeableViews>)}
-      </div>);
+    const { currencies, exchangeRate } = this.props;
+    if (!currencies || !exchangeRate) return null;
+
+    return <div>
+      <CurrencySwiper onChangeIndex={this.onFromChangeIndex} currencies={currencies} onChange={this.onFromValChange} className={'input'} placeholder={0} value={this.state.value} />
+      <CurrencySwiper onChangeIndex={this.onToChangeIndex} currencies={currencies} disabled className={'input'} placeholder={0} value={convertedValue(this.state.value, this.state.from, this.state.to, exchangeRate)} />
+      <button onClick={this.onExchange}></button>
+    </div>
   }
 }
 
-  export default withErrorBoundary(ExchangeRate);
+export default withErrorBoundary(withStyles(styles)(ExchangeRate));
+
+const convertedValue = (value, fromCurr, toCurr, exchangeRate) => {
+  const ratio = exchangeRate[toCurr]/exchangeRate[fromCurr];
+  return value*ratio;
+}
