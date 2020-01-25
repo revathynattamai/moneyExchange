@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import store from './data/store';
+import ExchangeRate from './components/ExchangeRate/connect'
 
 function App() {
   return <Provider store={store}>
-    <h1>Hello, World</h1>
+    <ExchangeRate />
   </Provider>
 }
 
