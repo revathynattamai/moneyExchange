@@ -1,5 +1,5 @@
+/* eslint-disable no-magic-numbers */
 import { createAction } from '../../utils/helpers';
-import { getExchangeRates } from '../exchangeRates/exchangeRatesActions';
 
 export const SET_CURRENCIES = 'POCKETS::SET_CURRENCIES';
 
@@ -20,10 +20,22 @@ export const getCurrencies = () => dispatch => {
     .then(json => {
       dispatch([
         setCurrencies(json),
-        // getExchangeRates()
       ]);
     })
     .catch((error) => {
       console.log(error)
     });
 };
+
+export const exchange = ({ fromCurr, toCurr, fromVal, toVal }) => (dispatch, getState) => {
+  const { currencies } = getState();
+
+  if (fromVal <= 0) return;
+  if (currencies[fromCurr] - +fromVal < 0) return;
+  if (fromCurr === toCurr) return;
+
+  const newCurrencies = { ...currencies };
+  newCurrencies[fromCurr] = newCurrencies[fromCurr] - +fromVal;
+  newCurrencies[toCurr] = newCurrencies[toCurr] + +toVal;
+  dispatch(setCurrencies(newCurrencies));
+}

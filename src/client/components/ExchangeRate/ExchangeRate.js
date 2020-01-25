@@ -18,7 +18,7 @@ class ExchangeRate extends Component {
     const val = e.target.value;
     this.setState({
       from: currency,
-      value: +val,
+      value: val,
     });
   }
 
@@ -46,8 +46,13 @@ class ExchangeRate extends Component {
   }
 
   onExchange = () => {
-    const { exchange } = this.props;
-    exchange();
+    const { exchange, exchangeRate } = this.props;
+    exchange({
+      fromCurr: this.state.from,
+      toCurr: this.state.to,
+      fromVal: this.state.value,
+      toVal: convertedValue(this.state.value, this.state.from, this.state.to, exchangeRate),
+    });
   }
 
   render() {
@@ -55,16 +60,29 @@ class ExchangeRate extends Component {
     if (!currencies || !exchangeRate) return null;
 
     return <div>
-      <CurrencySwiper onChangeIndex={this.onFromChangeIndex} currencies={currencies} onChange={this.onFromValChange} className={'input'} placeholder={0} value={this.state.value} />
-      <CurrencySwiper onChangeIndex={this.onToChangeIndex} currencies={currencies} disabled className={'input'} placeholder={0} value={convertedValue(this.state.value, this.state.from, this.state.to, exchangeRate)} />
-      <button onClick={this.onExchange}></button>
+      <CurrencySwiper
+        onChangeIndex={this.onFromChangeIndex}
+        currencies={currencies}
+        onChange={this.onFromValChange}
+        className={'input'} placeholder={'0.00'}
+        value={this.state.value} />
+      <CurrencySwiper
+        onChangeIndex={this.onToChangeIndex}
+        currencies={currencies}
+        disabled
+        className={'input'}
+        placeholder={0}
+        value={convertedValue(this.state.value, this.state.from, this.state.to, exchangeRate)} />
+      <button onClick={this.onExchange}>Exchange</button>
+      <p>Swipe to see other currencies</p>
     </div>
   }
 }
 
 export default withErrorBoundary(withStyles(styles)(ExchangeRate));
 
-const convertedValue = (value, fromCurr, toCurr, exchangeRate) => {
+export const convertedValue = (value, fromCurr, toCurr, exchangeRate) => {
   const ratio = exchangeRate[toCurr]/exchangeRate[fromCurr];
-  return value*ratio;
+  const ret = +value*ratio;
+  return ret.toFixed(2).toString();
 }
