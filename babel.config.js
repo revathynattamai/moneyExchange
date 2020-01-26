@@ -1,4 +1,4 @@
-{
+module.exports = {
   "presets": [
     "@babel/preset-react",
     [
@@ -6,14 +6,15 @@
       {
         "targets": {
           "chrome": "41",
-          "ie": "10"
-        }
-      }
-    ]
+          "ie": "10",
+          "node": "current",
+        },
+      },
+    ],
   ],
   "plugins": [
     "istanbul",
     "@babel/plugin-proposal-class-properties",
-    "@babel/plugin-syntax-dynamic-import"
-  ]
+    "@babel/plugin-syntax-dynamic-import",
+  ],
 }

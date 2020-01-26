@@ -12,6 +12,7 @@ module.exports = {
     browser: true,
     node: true,
     jasmine: true,
+    jest: true,
   },
   globals: {
     shallow: true

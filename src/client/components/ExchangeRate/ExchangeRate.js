@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 // import { withStyles } from '@material-ui/styles';
 import Container from '@material-ui/core/Container';
-import withErrorBoundary from './errorBoundary';
+import withErrorBoundary from './ErrorBoundary';
 import CurrencySwiper from './CurrencySwiper';
 import Button from '@material-ui/core/Button';
+import { convertedValue } from '../../utils/helpers';
 import styles from './styles';
 
 class ExchangeRate extends Component {
@@ -27,7 +28,8 @@ class ExchangeRate extends Component {
   componentDidMount = () => {
     const { getCurrencies, getExchangeRates } = this.props;
     getCurrencies();
-    window.setInterval(getExchangeRates, 1000);
+    // eslint-disable-next-line no-magic-numbers
+    global.setInterval(getExchangeRates, 1000);
   }
 
   onFromChangeIndex = i => {
@@ -61,7 +63,7 @@ class ExchangeRate extends Component {
     if (!currencies || !exchangeRate) return null;
 
     return <Container maxWidth="sm" style={styles.main}>
-      <p style={styles.title}>Revolut</p> 
+      <p style={styles.title}>Revolut</p>
       <CurrencySwiper
         onChangeIndex={this.onFromChangeIndex}
         currencies={currencies}
@@ -82,9 +84,3 @@ class ExchangeRate extends Component {
 }
 
 export default withErrorBoundary(ExchangeRate);
-
-export const convertedValue = (value, fromCurr, toCurr, exchangeRate) => {
-  const ratio = exchangeRate[toCurr] / exchangeRate[fromCurr];
-  const ret = +value * ratio;
-  return ret.toFixed(2).toString();
-}

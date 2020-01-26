@@ -1,4 +1,4 @@
 export default {
-    currencies: null,
-    exchangeRate: null
-  };
+  currencies: null,
+  exchangeRate: null,
+};

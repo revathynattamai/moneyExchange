@@ -1,0 +1,223 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExhcangeRate renders nothing if exchangeRate and currencies are null 1`] = `null`;
+
+exports[`ExhcangeRate renders nothing if exchangeRate and currencies are null 2`] = `
+<div
+  className="MuiContainer-root MuiContainer-maxWidthSm"
+  style={
+    Object {
+      "backgroundColor": "#cfe8fc",
+      "height": "100vh",
+    }
+  }
+>
+  <p
+    style={
+      Object {
+        "color": "white",
+        "fontSize": 30,
+        "padding": 10,
+        "textAlign": "center",
+        "textShadow": "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
+      }
+    }
+  >
+    Revolut
+  </p>
+  <div
+    onMouseDown={[Function]}
+    onMouseLeave={[Function]}
+    onMouseMove={[Function]}
+    onMouseUp={[Function]}
+    onScroll={[Function]}
+    onTouchEnd={[Function]}
+    onTouchStart={[Function]}
+    style={
+      Object {
+        "height": 50,
+        "margin": 10,
+        "overflowX": "hidden",
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      className="react-swipeable-view-container"
+      style={
+        Object {
+          "WebkitFlexDirection": "row",
+          "WebkitTransition": "all 0s ease 0s",
+          "direction": "ltr",
+          "display": "flex",
+          "flexDirection": "row",
+          "height": null,
+          "transition": "all 0s ease 0s",
+          "willChange": "transform",
+        }
+      }
+    >
+      <div
+        aria-hidden={false}
+        data-swipeable="true"
+        style={
+          Object {
+            "WebkitFlexShrink": 0,
+            "flexShrink": 0,
+            "overflow": "auto",
+            "width": "100%",
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "padding": 10,
+            }
+          }
+        >
+          <span
+            style={
+              Object {
+                "fontSize": 20,
+                "margin": 2,
+              }
+            }
+          >
+            USD
+          </span>
+          <input
+            className="input"
+            onChange={[Function]}
+            placeholder="0.00"
+            size="8"
+            type="text"
+            value=""
+          />
+          <span
+            style={
+              Object {
+                "fontSize": 20,
+                "margin": 2,
+              }
+            }
+          >
+            10.00
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    onMouseDown={[Function]}
+    onMouseLeave={[Function]}
+    onMouseMove={[Function]}
+    onMouseUp={[Function]}
+    onScroll={[Function]}
+    onTouchEnd={[Function]}
+    onTouchStart={[Function]}
+    style={
+      Object {
+        "height": 50,
+        "margin": 10,
+        "overflowX": "hidden",
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      className="react-swipeable-view-container"
+      style={
+        Object {
+          "WebkitFlexDirection": "row",
+          "WebkitTransition": "all 0s ease 0s",
+          "direction": "ltr",
+          "display": "flex",
+          "flexDirection": "row",
+          "height": null,
+          "transition": "all 0s ease 0s",
+          "willChange": "transform",
+        }
+      }
+    >
+      <div
+        aria-hidden={false}
+        data-swipeable="true"
+        style={
+          Object {
+            "WebkitFlexShrink": 0,
+            "flexShrink": 0,
+            "overflow": "auto",
+            "width": "100%",
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "padding": 10,
+            }
+          }
+        >
+          <span
+            style={
+              Object {
+                "fontSize": 20,
+                "margin": 2,
+              }
+            }
+          >
+            USD
+          </span>
+          <input
+            className="input"
+            disabled={true}
+            onChange={[Function]}
+            placeholder={0}
+            size="8"
+            type="text"
+            value="0.00"
+          />
+          <span
+            style={
+              Object {
+                "fontSize": 20,
+                "margin": 2,
+              }
+            }
+          >
+            10.00
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button
+    className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary"
+    disabled={false}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onDragLeave={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    tabIndex={0}
+    type="button"
+  >
+    <span
+      className="MuiButton-label"
+    >
+      Exchange
+    </span>
+  </button>
+  <p>
+    Swipe to see other currencies
+  </p>
+</div>
+`;
