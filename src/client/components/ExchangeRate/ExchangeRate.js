@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { withStyles } from '@material-ui/styles';
+// import { withStyles } from '@material-ui/styles';
+import Container from '@material-ui/core/Container';
 import withErrorBoundary from './errorBoundary';
 import CurrencySwiper from './CurrencySwiper';
+import Button from '@material-ui/core/Button';
 import styles from './styles';
 
 class ExchangeRate extends Component {
@@ -59,7 +61,8 @@ class ExchangeRate extends Component {
     const { currencies, exchangeRate } = this.props;
     if (!currencies || !exchangeRate) return null;
 
-    return <div>
+    return <Container maxWidth="sm" style={styles.main}>
+      <p style={styles.title}>Revolut</p> 
       <CurrencySwiper
         onChangeIndex={this.onFromChangeIndex}
         currencies={currencies}
@@ -73,16 +76,16 @@ class ExchangeRate extends Component {
         className={'input'}
         placeholder={0}
         value={convertedValue(this.state.value, this.state.from, this.state.to, exchangeRate)} />
-      <button onClick={this.onExchange}>Exchange</button>
+      <Button variant="contained" color="secondary" onClick={this.onExchange}>Exchange</Button>
       <p>Swipe to see other currencies</p>
-    </div>
+    </Container>
   }
 }
 
-export default withErrorBoundary(withStyles(styles)(ExchangeRate));
+export default withErrorBoundary(ExchangeRate);
 
 export const convertedValue = (value, fromCurr, toCurr, exchangeRate) => {
-  const ratio = exchangeRate[toCurr]/exchangeRate[fromCurr];
-  const ret = +value*ratio;
+  const ratio = exchangeRate[toCurr] / exchangeRate[fromCurr];
+  const ret = +value * ratio;
   return ret.toFixed(2).toString();
 }
