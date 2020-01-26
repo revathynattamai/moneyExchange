@@ -29,7 +29,7 @@ class ExchangeRate extends Component {
     const { getCurrencies, getExchangeRates } = this.props;
     getCurrencies();
     // eslint-disable-next-line no-magic-numbers
-    global.setInterval(getExchangeRates, 1000);
+    global.setInterval(getExchangeRates, 10000);
   }
 
   onFromChangeIndex = i => {

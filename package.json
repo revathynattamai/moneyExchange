@@ -11,6 +11,7 @@
     "build:server:firebase": "webpack --env=server.firebase --config=_webpack/webpack.config.js",
     "lint": "eslint .",
     "firebase:hosting": "firebase deploy --only=hosting",
+    "firebase:deploy": "npm run build:client:prod && npm run build:server:firebase && npx firebase deploy",
     "test": "jest"
   },
   "repository": {
