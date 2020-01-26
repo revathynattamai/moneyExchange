@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="minimum-scale=1, initial-scale=1, maximum-scale=5, width=device-width, shrink-to-fit=no">
-    <title><%= htmlWebpackPlugin.options.title %></title>
-  </head>
-  <body>
-    <div id='root'></div>
-  </body>
+
+<head>
+  <style>
+    body {
+      background: #eceff1;
+    }
+    .gradient {
+      color: black;
+      background-color: #E6E6E6;
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#E6E6E6), to(#CCCCCC));
+    }
+  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="minimum-scale=1, initial-scale=1, maximum-scale=5, width=device-width, shrink-to-fit=no">
+  <title>
+    <%= htmlWebpackPlugin.options.title %>
+  </title>
+</head>
+
+<body>
+  <div id='root'></div>
+</body>
+
 </html>

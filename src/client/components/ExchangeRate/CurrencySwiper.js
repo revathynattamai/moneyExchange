@@ -5,7 +5,7 @@ import styles from './styles';
 
 const CurrencySwiper = ({ currencies, onChange, onChangeIndex, ...otherProps }) => {
 
-  return<SwipeableViews onChangeIndex={onChangeIndex} enableMouseEvents style={styles.paper}>
+  return<SwipeableViews onChangeIndex={onChangeIndex} enableMouseEvents className='gradient' style={styles.paper}>
       {Object.keys(currencies).map((currency, i) => <div style={{padding: 10}}key={i}>
         <span style={{margin: 2, fontSize:20}}>{currency.toLocaleUpperCase()}</span>
         <input type="text" size="8" onChange={e => onChange(e, currency)} {...otherProps} />
