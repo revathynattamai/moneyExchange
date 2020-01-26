@@ -60,7 +60,7 @@ class ExchangeRate extends Component {
 
   render() {
     const { currencies, exchangeRate } = this.props;
-    if (!currencies || !exchangeRate) return null;
+    if (!currencies || !exchangeRate) return <p style={styles.title}>Loading...</p>;
 
     return <Container maxWidth="sm" style={styles.main}>
       <p style={styles.title}>Revolut</p>
