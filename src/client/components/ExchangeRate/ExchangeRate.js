@@ -27,8 +27,7 @@ class ExchangeRate extends Component {
   componentDidMount = () => {
     const { getCurrencies, getExchangeRates } = this.props;
     getCurrencies();
-    getExchangeRates();
-    // window.setInterval(getExchangeRates, 1000);
+    window.setInterval(getExchangeRates, 1000);
   }
 
   onFromChangeIndex = i => {
